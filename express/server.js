@@ -44,22 +44,47 @@ router.get('/:id', (req, res) => {
 
 //post request, created new json data
 
-router.post('/', (req, res) => {
-    const {make, model, year, price} = req.body;
+// router.post('/', (req, res) => {
+//     const {make, model, year, price} = req.body;
 
-    if(!make || !model || !year || !price){
-        return res.status(400).json({error: "Missing Fields"});
-    }
-    const newCar = {
-        id: cars.length + 1,
-        make, 
-        model,
-        year: Number(year),
-        price: Number(price),
-    }
-    cars.push(newCar);
-    res.status(201).json(newCar);
-})
+//     if(!make || !model || !year || !price){
+//         return res.status(400).json({error: "Missing Fields"});
+//     }
+//     const newCar = {
+//         id: cars.length + 1,
+//         make, 
+//         model,
+//         year: Number(year),
+//         price: Number(price),
+//     }
+//     cars.push(newCar);
+//     res.status(201).json(newCar);
+// })
+
+//update dtabase
+// router.put('/:id', (req, res) => {
+//     const id = Number(req.params.id);
+//     const index = cars.find(c => c.id === id);
+//     if(!index){
+//         return res.status(404).json({error: "Car not found"});
+//     }
+//     const {make, model, year, price} = req.body;
+//     if(make){
+//         cars[index].make = make;
+//     }
+//     if(model){
+//         cars[index].model = model;
+//     }
+//     if(year){
+//         cars[index].year = year;
+//     }
+//     if(price){
+//         cars[index].price = price;
+//     }
+//     return res.json(cars[index]);
+// })
+
+
 
 app.use('/api/v1/cars', router);//defining router
 
